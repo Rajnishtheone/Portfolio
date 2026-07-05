@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 23% 97%;
+    --foreground: 0 0% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+    --primary: 29 55% 38%;
+    --primary-foreground: 40 23% 97%;
+    --secondary: 42 18% 93%;
+    --secondary-foreground: 0 0% 7%;
+    --muted: 0 0% 42%;
+    --muted-foreground: 0 0% 42%;
+    --accent: 29 55% 38%;
+    --accent-foreground: 40 23% 97%;
+    --destructive: 0 62% 42%;
+    --destructive-foreground: 40 23% 97%;
+    --border: 30 12% 84%;
+    --input: 30 12% 84%;
+    --ring: 29 55% 38%;
+    --radius: 1.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 40 28% 95%;
+    --card: 0 0% 6%;
+    --card-foreground: 40 28% 95%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 40 28% 95%;
+    --primary: 29 58% 58%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 9%;
+    --secondary-foreground: 40 28% 95%;
+    --muted: 0 0% 54%;
+    --muted-foreground: 0 0% 54%;
+    --accent: 29 58% 58%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 60% 58%;
+    --destructive-foreground: 0 0% 4%;
+    --border: 0 0% 17%;
+    --input: 0 0% 17%;
+    --ring: 29 58% 58%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body), sans-serif;
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.28) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.28) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  a {
+    @apply underline-offset-4;
+  }
+
+  ::selection {
+    background: hsl(var(--accent) / 0.18);
+  }
+}
+
+@layer components {
+  .page-frame {
+    @apply mx-auto max-w-6xl px-5 pb-20 pt-8 sm:px-6 sm:pb-24 lg:px-8;
+  }
+
+  .page-section {
+    @apply py-12 sm:py-16;
+  }
+
+  .surface {
+    @apply rounded-[2rem] border border-border p-6 sm:p-7;
+    background-color: hsl(var(--card) / 0.92);
+  }
+
+  .meta-text {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground;
+  }
+
+  .meta-chip {
+    @apply inline-flex items-center rounded-full border border-border px-3 py-1 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground;
+  }
+
+  .project-thumb {
+    @apply flex min-h-44 flex-col justify-between rounded-[1.5rem] border border-border p-5;
+    background-color: hsl(var(--secondary) / 0.7);
+  }
+}
+
+@media print {
+  header,
+  footer {
+    display: none;
+  }
+
+  body {
+    background: white;
+  }
+}
